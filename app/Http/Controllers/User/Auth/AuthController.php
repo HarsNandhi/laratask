@@ -98,11 +98,11 @@ class AuthController extends Controller
         
         if ($user->save())
         {
-            return redirect(url('user/register'))->with('success', 'Student registration successfully');
+            return redirect(url('user/register'))->with('success', 'Your registration successfully');
         }
         else
         {
-            return redirect(url('user/register'))->with('error', 'Student registration failed!');
+            return redirect(url('user/register'))->with('error', 'Your registration failed!');
         }
 
 
