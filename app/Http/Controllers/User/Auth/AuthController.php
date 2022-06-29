@@ -79,6 +79,17 @@ class AuthController extends Controller
 
     public function save(Request $request)
     {
+
+
+        $validator = \Validator::make($request->all(), [
+        'email'=>'required|email|unique:users'
+        ]);
+
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;        
